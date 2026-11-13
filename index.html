@@ -147,6 +147,47 @@ body{padding-top:var(--header-height)}
 }
 
 #cases-title .punct{color:var(--purple)}
+
+/* V16: propósito, posicionamento e fundadores. */
+.purpose .about-grid{grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr);align-items:center;gap:clamp(36px,6vw,100px);margin-top:clamp(36px,5vw,80px)}
+.purpose h2{font-size:clamp(38px,5.15vw,83px);line-height:1.06;letter-spacing:-.05em}
+.purpose .about-copy p{margin:0}
+.positioning{border-top:1px solid var(--line);padding-top:clamp(56px,6.5vw,104px);padding-bottom:clamp(64px,8vw,128px)}
+.positioning-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(36px,7vw,110px);align-items:start}
+.positioning h2{font-size:clamp(38px,4.5vw,72px);line-height:1.08}
+.positioning-copy{max-width:730px}
+.positioning-copy p{font-size:clamp(19px,1.65vw,26px);line-height:1.55;color:var(--muted)}
+.positioning-copy p:first-child{color:var(--cream);font-weight:500;margin-bottom:22px}
+.founders{border-top:1px solid var(--line);padding-top:clamp(60px,7vw,110px);padding-bottom:clamp(70px,10vw,150px)}
+.founders h2{font-size:clamp(44px,6vw,100px);max-width:16ch;margin-bottom:clamp(30px,4.2vw,66px)}
+.founders h2 .punct{color:var(--purple)}
+.founders-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,66px);align-items:start}
+.founder{min-width:0}
+.founder-portrait{width:100%;aspect-ratio:1122/1402;height:auto;object-fit:contain;background:#0b0b0d;display:block}
+.founder h3{font-family:var(--display);font-weight:400;font-size:clamp(23px,2.65vw,42px);line-height:1.1;letter-spacing:-.035em;margin-top:clamp(20px,2vw,32px)}
+.founder-role{font-size:clamp(15px,1.35vw,20px);font-weight:500;color:var(--green);margin-top:5px;line-height:1.4}
+.founder-bio{font-size:clamp(17px,1.35vw,21px);line-height:1.6;color:var(--muted);margin-top:18px;max-width:59ch}
+@media(max-width:900px){.purpose .about-grid{gap:4vw}.purpose h2{font-size:clamp(34px,5.5vw,53px)}}
+@media(max-width:680px){.purpose .about-grid{display:block;margin-top:30px}.purpose h2{font-size:clamp(34px,9vw,60px)}.purpose .about-copy{padding-top:28px}.purpose .about-copy p{font-size:22px;line-height:1.42}.positioning{padding-top:44px;padding-bottom:60px}.positioning-grid{display:block}.positioning h2{font-size:clamp(34px,8.5vw,55px);margin-bottom:24px}.positioning-copy p{font-size:18px}.positioning-copy p:first-child{margin-bottom:18px}.founders{padding-top:48px;padding-bottom:70px}.founders h2{font-size:clamp(39px,9vw,62px);margin-bottom:30px}.founders-grid{grid-template-columns:1fr;gap:42px}.founder h3{font-size:clamp(24px,6.8vw,36px);margin-top:20px}.founder-bio{font-size:17px;margin-top:14px}.footer h2{font-size:clamp(24px,7.5vw,49px)}}
+
+
+/* V17: Players — retratos com bios reveladas sob interação. */
+.players-ready .founder-photo{position:relative;isolation:isolate}
+.players-ready .founder-bio{position:absolute;inset:0;z-index:1;display:flex;align-items:flex-end;justify-content:center;padding:clamp(20px,3.8vw,60px);margin:0;max-width:none;background:rgba(11,11,13,.87);color:var(--cream);font-size:clamp(14px,1.1vw,16px);line-height:1.55;opacity:0;visibility:hidden;transition:opacity .28s ease,visibility 0s linear .28s;pointer-events:none}
+.players-ready .founder.is-revealed .founder-bio{opacity:1;visibility:visible;transition:opacity .28s ease,visibility 0s}
+.players-ready .founder h3{padding-right:48px}
+.founder-toggle{display:none}
+.players-ready .founder-toggle{display:block;position:absolute;inset:0;z-index:2;width:100%;height:100%;padding:0;border:0;background:none;color:var(--cream);cursor:pointer;text-align:left;overflow:visible}
+.players-ready .founder-toggle:focus-visible{outline:2px solid var(--green);outline-offset:5px}
+.founder-toggle-icon{position:absolute;right:0;top:calc(100% + clamp(20px,2vw,32px));width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;color:var(--cream);transition:color .2s,border-color .2s}
+.founder-toggle-icon::before,.founder-toggle-icon::after{content:'';position:absolute;width:14px;height:1.5px;background:currentColor;transition:transform .2s}
+.founder-toggle-icon::after{transform:rotate(90deg)}
+.founder.is-revealed .founder-toggle-icon{color:var(--green);border-color:var(--green)}
+.founder.is-revealed .founder-toggle-icon::after{transform:rotate(0)}
+@media(max-width:900px) and (min-width:681px){.players-ready .founder-bio{font-size:15px;line-height:1.45;padding:20px}}
+@media(max-width:680px){.players-ready .founder-bio{font-size:clamp(14px,3.9vw,17px);line-height:1.46;padding:clamp(16px,5vw,30px)}.founder-toggle-icon{top:calc(100% + 20px)}}
+@media(prefers-reduced-motion:reduce){.players-ready .founder-bio,.founder-toggle-icon,.founder-toggle-icon::after{transition:none!important}}
+
 </style>
 </head>
 <body id="inicio">
@@ -161,10 +202,14 @@ body{padding-top:var(--header-height)}
 <div class="hero-inner shell"><h1 class="display" id="hero-title"><span>Ideias</span> <span>que jogam</span> <span>junto<span class="punct">.</span></span></h1></div>
 <a href="#quem-somos" class="hero-down" aria-label="Conheça a MoD"><span aria-hidden="true">↓</span> Conheça a MoD</a>
 </section>
-<section class="about shell" id="quem-somos" aria-labelledby="about-title">
-<p class="kicker">Quem somos</p>
-<div class="about-grid"><h2 class="display" id="about-title"><span>Pra gente,</span> <span>game é diversão.</span> <span class="second">E diversão é coisa séria.</span></h2>
-<div class="about-copy"><p>Em um mundo onde todo mundo disputa atenção, os games têm algo que as marcas mais desejam: pessoas que querem estar ali.</p><p>A MoD nasceu para conectar marcas e jogadores criando ideias que entendem, respeitam e fazem parte da cultura gamer.</p><p>Somos uma agência criativa especializada em games unindo estratégia, criatividade e mídia para transformar a paixão de milhões de jogadores em conexões relevantes para marcas e negócios.</p></div></div>
+<section class="about purpose shell" id="quem-somos" aria-labelledby="about-title">
+<p class="kicker">Nosso propósito</p>
+<div class="about-grid"><h2 class="display" id="about-title"><span>Gaming é nosso jogo.</span> <span class="second">E com a gente você joga pra ganhar.</span></h2>
+<div class="about-copy"><p>Em um mundo onde todo mundo busca atenção, os games são uma fronteira a ser explorada por marcas que querem se conectar de verdade com consumidores.</p></div></div>
+</section>
+<section class="positioning shell" id="o-que-somos" aria-labelledby="positioning-title">
+<div class="positioning-grid"><h2 class="display" id="positioning-title">O que somos?</h2>
+<div class="positioning-copy"><p>A MoD nasceu para conectar marcas e jogadores com ideias que entendem, respeitam e fazem parte da cultura gamer.</p><p>Somos uma agência criativa especializada em games. Unimos estratégia, criatividade e mídia para transformar a paixão de milhões de jogadores em conexões relevantes para marcas e negócios.</p></div></div>
 </section>
 <section class="services shell" id="o-que-fazemos" aria-labelledby="services-title">
 <h2 class="display" id="services-title">O que<br>fazemos?</h2>
@@ -209,9 +254,17 @@ body{padding-top:var(--header-height)}
 </div>
 </section>
 
+<section class="founders shell" id="fundadores" aria-labelledby="founders-title">
+<h2 class="display" id="founders-title">Players<span class="punct">.</span></h2>
+<div class="founders-grid">
+<article class="founder" aria-labelledby="andre-title"><div class="founder-photo"><img class="founder-portrait" src="./assets/andre-mod.webp" width="1122" height="1402" alt="Retrato em preto e branco de André Kovadloff" loading="lazy" decoding="async"><p class="founder-bio" id="andre-bio">André Kovadloff é fundador e CCO da MoD Creative Gaming com mais de 20 anos de experiência no mercado publicitário, com trabalhos reconhecidos em festivais e publicações nacionais e internacionais. Atua na formação de novos talentos, realizando mentorias e workshops de storytelling em instituições como RedHook e D&amp;AD.</p><button type="button" class="founder-toggle" aria-label="Mostrar biografia de André Kovadloff" aria-controls="andre-bio" aria-expanded="false" data-name="André Kovadloff"><span class="founder-toggle-icon" aria-hidden="true"></span></button></div><h3 id="andre-title">André Kovadloff</h3><p class="founder-role">Founder &amp; CCO</p></article>
+<article class="founder" aria-labelledby="gui-title"><div class="founder-photo"><img class="founder-portrait" src="./assets/gui-mod.webp" width="1122" height="1402" alt="Retrato em preto e branco de Gui Machado" loading="lazy" decoding="async"><p class="founder-bio" id="gui-bio">Gui Machado é fundador e CSO da MoD Creative Gaming com mais de 10 anos de experiência no mercado publicitário e 5 anos no mercado global de games. Atua na formação de novos talentos, realizando mentorias para desenvolvedores de jogos com impacto social, além de aulas e workshops sobre games, marketing e negócios. Desde 2025, atua como Líder de Games no conselho da ABOTTS, Associação Brasileira de OTT e Streaming.</p><button type="button" class="founder-toggle" aria-label="Mostrar biografia de Gui Machado" aria-controls="gui-bio" aria-expanded="false" data-name="Gui Machado"><span class="founder-toggle-icon" aria-hidden="true"></span></button></div><h3 id="gui-title">Gui Machado</h3><p class="founder-role">Founder &amp; CSO</p></article>
+</div>
+</section>
+
 </main>
 <footer class="footer shell" id="contato">
-<div class="footer-grid"><div class="footer-copy"><h2 class="display">Bora jogar<br>junto?</h2><a class="footer-email" href="mailto:contato@modcreative.cc">contato@modcreative.cc</a></div><div class="footer-image"><img src="./assets/contato-controle.png" width="1672" height="941" alt="Controle de videogame preto iluminado em roxo, magenta e verde."></div></div>
+<div class="footer-grid"><div class="footer-copy"><h2 class="display">Bora jogar<br>juntos</h2><a class="footer-email" href="mailto:contato@modcreative.cc">contato@modcreative.cc</a></div><div class="footer-image"><img src="./assets/contato-controle.png" width="1672" height="941" alt="Controle de videogame preto iluminado em roxo, magenta e verde."></div></div>
 <div class="footer-end"><p>MoD Creative Gaming All Rights Reserved.</p><img src="./assets/mod-symbol-cream.svg" width="32" height="32" alt="" aria-hidden="true"><p class="footer-year">2026</p></div>
 </footer>
 <div class="case-overlay" id="case-overlay" aria-hidden="true">
@@ -235,6 +288,9 @@ body{padding-top:var(--header-height)}
 (()=>{const header=document.querySelector('.site-header');if(!header)return;let frame=0;function paint(){frame=0;header.classList.toggle('is-compact',window.scrollY>48)}function update(){if(!frame)frame=requestAnimationFrame(paint)}addEventListener('scroll',update,{passive:true});addEventListener('pageshow',update);paint()})();
 
 (()=>{const overlay=document.getElementById('case-overlay');if(!overlay)return;const frame=document.getElementById('case-frame');const closeBtn=document.getElementById('case-close');const titleEl=document.getElementById('case-dialog-title');const clientEl=document.getElementById('case-dialog-client');const triggers=[...document.querySelectorAll('.case-card')];let lastTrigger=null;function getSrc(provider,id){if(provider==='vimeo')return `https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0`;if(provider==='youtube')return `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;return ''}function openCase(trigger){if(trigger.dataset.external==='true'){window.open(trigger.href,'_blank','noopener');return}const provider=trigger.dataset.videoProvider;const id=trigger.dataset.videoId;frame.src=getSrc(provider,id);titleEl.textContent=trigger.dataset.caseTitle||'';clientEl.textContent=trigger.dataset.caseClient||'';overlay.classList.add('is-open');overlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';lastTrigger=trigger;closeBtn.focus()}function closeCase(){overlay.classList.remove('is-open');overlay.setAttribute('aria-hidden','true');frame.src='about:blank';document.body.style.overflow='';if(lastTrigger)lastTrigger.focus()}triggers.forEach(trigger=>{trigger.addEventListener('click',e=>{e.preventDefault();openCase(trigger)})});closeBtn.addEventListener('click',closeCase);overlay.addEventListener('click',e=>{if(e.target===overlay)closeCase()});addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('is-open'))closeCase()})})();
+
+
+(()=>{const section=document.querySelector('.founders');if(!section)return;section.querySelectorAll('.founder').forEach(card=>{const photo=card.querySelector('.founder-photo');const button=card.querySelector('.founder-toggle');const bio=card.querySelector('.founder-bio');let pinned=false,hovered=false,suppressed=false;function render(){const show=pinned||(hovered&&!suppressed);card.classList.toggle('is-revealed',show);button.setAttribute('aria-expanded',String(show));button.setAttribute('aria-label',(show?'Ocultar':'Mostrar')+' biografia de '+button.dataset.name);bio.setAttribute('aria-hidden',String(!show))}photo.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'){hovered=true;suppressed=false;render()}});photo.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse'){hovered=false;suppressed=false;render()}});button.addEventListener('click',()=>{if(pinned){pinned=false;suppressed=true}else if(hovered&&!suppressed){pinned=true}else{pinned=true;suppressed=false}render()});button.addEventListener('keydown',e=>{if(e.key==='Escape'){pinned=false;suppressed=true;render()}});render()});section.classList.add('players-ready')})();
 
 </script>
 
