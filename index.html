@@ -188,6 +188,9 @@ body{padding-top:var(--header-height)}
 @media(max-width:680px){.players-ready .founder-bio{font-size:clamp(14px,3.9vw,17px);line-height:1.46;padding:clamp(16px,5vw,30px)}.founder-toggle-icon{top:calc(100% + 20px)}}
 @media(prefers-reduced-motion:reduce){.players-ready .founder-bio,.founder-toggle-icon,.founder-toggle-icon::after{transition:none!important}}
 
+/* V20: pontuação roxa e quebra do título do propósito. */
+.purpose h2 .punct,.positioning h2 .punct,.services h2 .punct,.footer h2 .punct{color:var(--purple);display:inline}
+.purpose h2 .purpose-line{white-space:nowrap}
 </style>
 </head>
 <body id="inicio">
@@ -204,15 +207,15 @@ body{padding-top:var(--header-height)}
 </section>
 <section class="about purpose shell" id="quem-somos" aria-labelledby="about-title">
 <p class="kicker">Nosso propósito</p>
-<div class="about-grid"><h2 class="display" id="about-title"><span>Gaming é nosso jogo.</span> <span class="second">E com a gente você joga pra ganhar.</span></h2>
+<div class="about-grid"><h2 class="display" id="about-title"><span>Gaming</span> <span class="purpose-line">é nosso jogo<span class="punct">.</span></span> <span class="second">E com a gente você joga pra ganhar.</span></h2>
 <div class="about-copy"><p>Em um mundo onde todo mundo busca atenção, os games são uma fronteira a ser explorada por marcas que querem se conectar de verdade com consumidores.</p></div></div>
 </section>
 <section class="positioning shell" id="o-que-somos" aria-labelledby="positioning-title">
-<div class="positioning-grid"><h2 class="display" id="positioning-title">O que somos?</h2>
+<div class="positioning-grid"><h2 class="display" id="positioning-title">O que somos<span class="punct">?</span></h2>
 <div class="positioning-copy"><p>A MoD nasceu para conectar marcas e jogadores com ideias que entendem, respeitam e fazem parte da cultura gamer.</p><p>Somos uma agência criativa especializada em games. Unimos estratégia, criatividade e mídia para transformar a paixão de milhões de jogadores em conexões relevantes para marcas e negócios.</p></div></div>
 </section>
 <section class="services shell" id="o-que-fazemos" aria-labelledby="services-title">
-<h2 class="display" id="services-title">O que<br>fazemos?</h2>
+<h2 class="display" id="services-title">O que<br>fazemos<span class="punct">?</span></h2>
 <div class="service-list">
 <article class="service-item">
 <h3><button type="button" class="service-toggle" id="service-toggle-01" aria-expanded="false" aria-controls="service-panel-01"><span class="service-no">01</span><span class="service-name display">Creative Services</span><span class="service-icon" aria-hidden="true"></span></button></h3>
@@ -264,7 +267,7 @@ body{padding-top:var(--header-height)}
 
 </main>
 <footer class="footer shell" id="contato">
-<div class="footer-grid"><div class="footer-copy"><h2 class="display">Bora jogar<br>juntos</h2><a class="footer-email" href="mailto:contato@modcreative.cc">contato@modcreative.cc</a></div><div class="footer-image"><img src="./assets/contato-controle.png" width="1672" height="941" alt="Controle de videogame preto iluminado em roxo, magenta e verde."></div></div>
+<div class="footer-grid"><div class="footer-copy"><h2 class="display">Bora jogar<br>juntos<span class="punct">?</span></h2><a class="footer-email" href="mailto:contato@modcreative.cc">contato@modcreative.cc</a></div><div class="footer-image"><img src="./assets/contato-controle.png" width="1672" height="941" alt="Controle de videogame preto iluminado em roxo, magenta e verde."></div></div>
 <div class="footer-end"><p>MoD Creative Gaming All Rights Reserved.</p><img src="./assets/mod-symbol-cream.svg" width="32" height="32" alt="" aria-hidden="true"><p class="footer-year">2026</p></div>
 </footer>
 <div class="case-overlay" id="case-overlay" aria-hidden="true">
